@@ -1,17 +1,17 @@
-Необходимо написать консольную программу на Objective-C с использованием Foundation
-классов. В параметрах командной строки передаются следующие опции;
--h - описание опций и назначение программы. (Русский язык, и тем более транслит, не допустим)
--i - входное выражение (не может отсутствовать)
--o - имя выходного файла (если не задано, вывод в консоль)
-Логика программы заключается в следующем: необходимо распарсить входное выражение,
-которое является математическим выражением, использующим числа с плавающей точкой,
-арифметические знаки {+, -, *, /} и круглые скобки
-На основе парсинга строится бинарное дерево с левосторонним обходом.
-Результирующее дерево записывается в выходной файл в виде xml со следующим наборов
-тэгов:
+You must write a command-line program in Objective-C with Foundation
+classes. At the command line parameters passed to the following options;
+-h - a description of options and purpose of the program. (Russian language, and even more so transliteration is not acceptable)
+-i - input expression (can not miss)
+-o - output file name (if not specified, the output to the console)
+The program logic is as follows: to parse the input expression
+which is a mathematical expression using floating-point numbers,
+Arithmetic signs {+, -, *, /} and parentheses
+Based on the parsing of a binary tree is constructed with left bypass.
+The resulting tree is written to the output file is in xml with the following sets
+tags:
 <element>
-<id><\id>
-<value><\value>
-<is_leaf><\is_leaf>
-<parent><\parent>
-<\element>
+<id> <\ id>
+<value> <\ value>
+<is_leaf> <\ is_leaf>
+<parent> <\ parent>
+<\ element>
