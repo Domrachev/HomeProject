@@ -1,12 +1,21 @@
-#import "D:\ObjC\program\tree.h"
+#import "tree.h"
+
 @implementation Node
+
 -(id)init
 {
-	Num=nil;
-	Op=nil;
-	right=nil;
-	left=nil;
+	self->right=nil;
+	self->left=nil;
+    
+  
+    return self;
 }
+-(char)getop
+{
+    return Op;   
+}
+
+/*
 -(void)AddNum:(int) _Num
 {	
 	Node*tmp=self;
@@ -23,10 +32,10 @@
 	}
 	tmp=[[Node alloc] init];
 	tmp->Num=_Num;
-}
+}*/
 -(Node*)AddOp:(char)iOp
 {	
-	if(Op==nil)
+	if( (right==nil) && (left==nil) )
 	{	
 		Op=iOp;
 		return self;
@@ -42,12 +51,12 @@
 	}
 	else
 	{
-		if(tmp1->Op=='+'||tmp1->Op=='-'&&tmp1->right==nil)
+		if((tmp1->Op=='+'||tmp1->Op=='-') && (tmp1->right==nil))
 	{	
 		tmp1->right=tmp2;
 		return self;
 	}
-	if(tmp1->Op=='+'||tmp1->Op=='-'&&tmp1->right!=nil)
+	if( (tmp1->Op=='+'||tmp1->Op=='-') && (tmp1->right!=nil))
 	{
 		tmp3=tmp1->right;
 		tmp1->right=tmp2;

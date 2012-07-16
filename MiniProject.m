@@ -1,55 +1,54 @@
 #import <Foundation/Foundation.h>
-#import "D:\ObjC\program\tree.m"
+#import "tree.h"
 
 int main (int argc,  char ** argv) {
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 	extern char *optarg;
 	int oc;
-	//int Op=0;//operations
-	int Num=1;//number
-	int n;//length expression
+	int Number=1;
+	unsigned long lengthOfExpression;
 	Node *root = [[Node alloc]init];
-	
-	char *optstring = "i:";
-	char *b_opt_arg;
-		
-	while ((oc = getopt (argc, argv, optstring)) != -1)
+	char *optString = "i:";
+	char *optOfArg;
+	NSLog(@ "zaidu");	
+	while ((oc = getopt (argc, argv, optString)) != -1)
 	
     {
       switch (oc)
         {
         case 'i':
-			b_opt_arg = optarg;
-			int n=strlen(b_opt_arg);
-			int i;
+			optOfArg = optarg;
+			lengthOfExpression=strlen(optOfArg);
+			int q;
 			int j=0;
-			for( i=0;i<n;i++)
+			for( q=0;q<lengthOfExpression;q++)
 			{
-				if(b_opt_arg[i]=='+'||b_opt_arg[i]=='-'||b_opt_arg[i]=='*'||b_opt_arg[i]=='/')
+				if(optOfArg[q]=='+'||optOfArg[q]=='-'||optOfArg[q]=='*'||optOfArg[q]=='/')
 				{	
-					root=[root AddOp:b_opt_arg[i]];
-					Num++;
+					root=[root AddOp:optOfArg[q]];
+					Number++;
 				}
 			}
-			
-			i=0;
+                
+                
+			q=0;
 			int tmp1=0;
 			int tmp2=0;
 			int p;
 			int k;
-			int *ArrI=(int *)malloc(Num*sizeof(int));
+			int *ArrI=(int *)malloc(Number*sizeof(int));
 			char *Arr;
-			while(i!=n)
+			while(q!=lengthOfExpression)
 			{
-				if(b_opt_arg[i]=='+'||b_opt_arg[i]=='-'||b_opt_arg[i]=='*'||b_opt_arg[i]=='/'||i==n-1)
+				if(optOfArg[q]=='+'||optOfArg[q]=='-'||optOfArg[q]=='*'||optOfArg[q]=='/'||q==lengthOfExpression-1)
 				{	
 					k=tmp2-tmp1;
-					if(i==(n-1))
+					if(q==(lengthOfExpression-1))
 						k++;
 					Arr=(char*)malloc(k*sizeof(char));
 					for(p=0;p<k;p++)
 					{
-						Arr[p]=b_opt_arg[tmp1];
+						Arr[p]=optOfArg[tmp1];
 						tmp1++;
 					}
 					ArrI[j]=atoi(Arr);
@@ -63,12 +62,12 @@ int main (int argc,  char ** argv) {
 				{	
 					tmp2++;	
 				}
-				i++;
+				q++;
 			}
 			NSLog(@ "zaidu");
-			for(i=0;i<Num;i++)
+			for(q=0;q<Number;q++)
 			{	
-				[root AddNum: ArrI[i]];
+				//[root AddNum: ArrI[q]];
 			}
 			free(ArrI);
 			break;

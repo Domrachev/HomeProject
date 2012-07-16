@@ -1,5 +1,4 @@
 #import <Foundation/Foundation.h>
-//#import "D:\ObjC\program\tree.m"
 @interface Node : NSObject
 {
     Node *left;
@@ -7,7 +6,8 @@
 	int Num;
     char Op;
 }
--(id)Init;
--(Node*) AddOp:(char)iOp;
--(void) AddNum:(int)_Num;
+-(id)init;
+-(char)getop;
+- (Node*) AddOp:(char)iOp;
+//-(void) AddNum:(int)_Num;
 @end
