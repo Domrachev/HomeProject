@@ -12,10 +12,12 @@
 	Node*tmp=self;
 	while(tmp!=nil)
 	{	
-		if(tmp->left->Op!=nil&&tmp->left->Num==nil)
+		if(((tmp->left->Op!=nil) && (tmp->left->Num==nil)) || ((tmp->Op!=nil) && (tmp->left==nil)))
+			{
 			tmp=tmp->left;
+			}
 		else
-			if(tmp->right->Op!=nil&&tmp->right->Num==nil)
+			if((tmp->right->Op!=nil&&tmp->right->Num==nil) || ((tmp->Op!=nil)&&(tmp->right==nil)))
 				tmp=tmp->right;
 		
 	}

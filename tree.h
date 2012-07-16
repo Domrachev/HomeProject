@@ -9,5 +9,5 @@
 }
 -(id)Init;
 -(Node*) AddOp:(char)iOp;
--(void) AddNum:(int)_Num:;
+-(void) AddNum:(int)_Num;
 @end

@@ -65,7 +65,7 @@ int main (int argc,  char ** argv) {
 				}
 				i++;
 			}
-			
+			NSLog(@ "zaidu");
 			for(i=0;i<Num;i++)
 			{	
 				[root AddNum: ArrI[i]];
