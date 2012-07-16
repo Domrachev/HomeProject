@@ -1,26 +1,20 @@
 #import <Foundation/Foundation.h>
-#import "D:\ObjC\program\tree.h"
-
+#import "D:\ObjC\program\tree.m"
 
 int main (int argc,  char ** argv) {
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 	extern char *optarg;
 	int oc;
-	//int Op=0;//Количество операций
-	int Num=1;//Количество чисел
-	//int n;//длина выражения, которое ввел пользователь
+	//int Op=0;//operations
+	int Num=1;//number
+	int n;//length expression
 	Node *root = [[Node alloc]init];
-	Node *tmp=root;
+	
 	char *optstring = "i:";
 	char *b_opt_arg;
-	[tmp AddOp:'-'];
-	tmp=root;
-	[tmp AddOp:'+'];
-	//[root AddOp:'/'];
+		
+	while ((oc = getopt (argc, argv, optstring)) != -1)
 	
-	NSLog(@ "root- %c", tmp->Op);
-	/*while ((oc = getopt (argc, argv, optstring)) != -1)
-	//oc = getopt (argc, argv, optstring);
     {
       switch (oc)
         {
@@ -33,42 +27,37 @@ int main (int argc,  char ** argv) {
 			{
 				if(b_opt_arg[i]=='+'||b_opt_arg[i]=='-'||b_opt_arg[i]=='*'||b_opt_arg[i]=='/')
 				{	
-					[root AddOp:b_opt_arg[i]];
+					root=[root AddOp:b_opt_arg[i]];
 					Num++;
-					
 				}
 			}
 			
-			NSLog(@ "Operandi %c",root->Op);
-			*/
-			//NSLog(@ "%c",s);
-			//NSLog(@ "%i",Num);
-			/*
 			i=0;
 			int tmp1=0;
 			int tmp2=0;
 			int p;
 			int k;
-			int *ArrI=(int *)malloc(Num);
+			int *ArrI=(int *)malloc(Num*sizeof(int));
 			char *Arr;
-			while(i!=n+1)
-			{	NSLog(@ "zashel%i",i);
-				if(b_opt_arg[i]=='+'||b_opt_arg[i]=='-'||b_opt_arg[i]=='*'||b_opt_arg[i]=='/'||i==n)
-				{	NSLog(@ "sozdal v if");
+			while(i!=n)
+			{
+				if(b_opt_arg[i]=='+'||b_opt_arg[i]=='-'||b_opt_arg[i]=='*'||b_opt_arg[i]=='/'||i==n-1)
+				{	
 					k=tmp2-tmp1;
-					Arr=(char*)malloc(k);
+					if(i==(n-1))
+						k++;
+					Arr=(char*)malloc(k*sizeof(char));
 					for(p=0;p<k;p++)
-					{	
+					{
 						Arr[p]=b_opt_arg[tmp1];
 						tmp1++;
 					}
 					ArrI[j]=atoi(Arr);
-					NSLog(@ "%i",ArrI[j]);
 					j++;
 					free(Arr);
-					tmp1++;
+					Arr=nil;
 					tmp2++;
-					NSLog(@ "vishel iz  if");
+					tmp1=tmp2;
 				}
 				else
 				{	
@@ -76,20 +65,15 @@ int main (int argc,  char ** argv) {
 				}
 				i++;
 			}
-			NSLog(@ "sozdal massiv");
-			NSLog(@ "root op %c",root->Op);
+			
 			for(i=0;i<Num;i++)
-				{
-				NSLog(@ "zashel v main%i",i+1);
-				//Node *tmp=root;
-				[root AddNum: ArrI[i]: root];
-				}
+			{	
+				[root AddNum: ArrI[i]];
+			}
 			free(ArrI);
-		*/	
-		//	break;
-        //}
-   // }
-	
+			break;
+        }
+    }
 	[pool drain];
     return 0;
 }
